@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .nav_elements {
+    @apply hidden md:px-2 items-center gap-1 py-2 
+      hover:border-b-2 border-b-2 border-b-transparent px-2 
+      hover:border-b-black md:flex transition !important;
+  }
+}
+
+@tailwind utilities;
