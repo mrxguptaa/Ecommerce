@@ -8,8 +8,9 @@ import {
   HandHelping,
   KeyRound,
   CirclePlus,
-  Settings,
-  Bell 
+  // Profiles,
+  Bell,
+  CircleUserRound
 } from "lucide-react"; //Icons Imported
 import { Link } from "react-router-dom"; // Link for another page imported
 import { useState } from "react"; // use state Imported
@@ -47,7 +48,7 @@ const Navbar = () => {
       {/* This is the Navbar for md or larger devices  */}
       <div className="flex justify-center md:justify-between items-center flex-grow">
         <h1 className="md:basis-1/12 text-center flex justify-center items-center">
-          <img src={logo} alt={logo} className="w-[50px]" />
+          <img src={logo} alt={logo} className="w-[50px] mt-1" />
         </h1>
 
         {/* Search bar Div  */}
@@ -120,10 +121,10 @@ const Navbar = () => {
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/Setting"
+              to="/Profile"
               className="nav_elements"
             >
-              <Settings />
+              <CircleUserRound />
             </Link>
           </li>
         </ul>
@@ -212,12 +213,12 @@ const Navbar = () => {
 
         <li className="p-1 hover:bg-gray-300">
           <Link
-            to="/Setting"
+            to="/Profile"
             className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
             onClick={toggleMenu}
           >
-            <Settings />
-            Setting
+            <CircleUserRound />
+            Profile
           </Link>
         </li>
       </ul>

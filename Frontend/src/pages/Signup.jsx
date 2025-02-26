@@ -1,22 +1,29 @@
 import { useForm } from "react-hook-form"; // Import Use Form
 import googleIcon from "../assets/google-icon.png"; // Import Google icon png
 import { Link } from "react-router-dom"; // Import Link for redirecte to pages
+import { z } from "zod"; // Import zod for validate form inputs
+import { zodResolver } from "@hookform/resolvers/zod";
+
+
+
+const userSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8,"Password should be at least 8 chr").max(15,"Password shouldn't exceed 15 chr")
+})
 
 const Signup = () => {
   // Form Handling
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(userSchema), // Connect Zod with React Hook Form
+  });
 
   // function for form 
   const onSubmit = (data) => {
-    Object.entries(data).forEach(([key, value]) => {
-      if(key === '' || value === '') {
-        // console.log("Form Submitted!", new Date().toISOString());
-        alert('Not Valid')
-      }
-      else {
-        console.log(`${key}: ${value}`);
-      }
-    });
+    console.log(data)
   };
 
 
@@ -49,6 +56,7 @@ const Signup = () => {
             {...register("email")}
             className="border-2 w-full p-2 rounded border-gray-300"
           />
+          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
         </div>
         <div>
           <p className="text-sm text-gray-500">Password</p>
@@ -58,6 +66,7 @@ const Signup = () => {
             {...register("password")}
             className="border-2 w-full p-2 rounded border-gray-300"
           />
+          {errors.password && (<p className="text-red-500 text-sm">{errors.password.message}</p>)}
         </div>
         <div className="flex items-center ">
           <input type="checkbox" className="" />

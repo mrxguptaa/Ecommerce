@@ -70,7 +70,7 @@ const Login = () => {
                 </div>
                 </button>
         <p className="text-xs text-gray-500 text-center">
-          Already have an account? <span >Log in here</span>
+          Don't have an account? <Link to='/Signup' className="underline" >Sign up here</Link>
         </p>
       </form>
     </>
