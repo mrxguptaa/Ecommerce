@@ -4,6 +4,7 @@ import NoPage from "./pages/NoPage"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Profile from './pages/Profile'
+import AddInfo from "./pages/add.info";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -17,8 +18,8 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/Signup" element={<Signup />} />
           <Route path='/Profile' element={<Profile/>} />
+          <Route path="/add_info" element={<AddInfo/>} />
           <Route path="/*" element={<NoPage />} />
-          
         </Routes>
       </Router>
     </>

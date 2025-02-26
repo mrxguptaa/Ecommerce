@@ -3,29 +3,37 @@ import googleIcon from "../assets/google-icon.png"; // Import Google icon png
 import { Link } from "react-router-dom"; // Import Link for redirecte to pages
 import { z } from "zod"; // Import zod for validate form inputs
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 
 
 
 const userSchema = z.object({
   email: z.string().email("Invalid email address"),
-  password: z.string().min(8,"Password should be at least 8 chr").max(15,"Password shouldn't exceed 15 chr")
-})
+  password: z.string().min(8, "Password should be at least 8 characters").max(15, "Password shouldn't exceed 15 characters"),
+  newsUpdates: z.boolean(),
+});
 
 const Signup = () => {
+
+  const Navigate = useNavigate();
   // Form Handling
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch
   } = useForm({
-    resolver: zodResolver(userSchema), // Connect Zod with React Hook Form
+    resolver: zodResolver(userSchema),
+    defaultValues: {
+      newsUpdates: false,
+    },
   });
 
   // function for form 
   const onSubmit = (data) => {
     console.log(data)
+    Navigate('../add_info')
   };
-
 
   // Creating form from here
   return (
@@ -69,7 +77,8 @@ const Signup = () => {
           {errors.password && (<p className="text-red-500 text-sm">{errors.password.message}</p>)}
         </div>
         <div className="flex items-center ">
-          <input type="checkbox" className="" />
+          <input type="checkbox" {...register("newsUpdates")}/>
+          
           <p className="text-sm px-1">Receive news, updates and deals </p>
         </div>
         <button
