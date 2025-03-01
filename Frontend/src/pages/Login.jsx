@@ -8,8 +8,25 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const [ toggle , setToggle] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data), // Send form data to backend
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("Logged In");
+        Navigate("../Home"); // Navigate to next page
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Try again.");
+    }
   };
 
   const RememberMe = () => {
