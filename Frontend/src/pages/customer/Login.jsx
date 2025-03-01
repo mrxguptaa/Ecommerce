@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
-import googleIcon from "../assets/google-icon.png";
+import googleIcon from "../../assets/google-icon.png";
 import { Link } from "react-router-dom";
 import {ToggleLeft , ToggleRight} from "lucide-react";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -13,13 +14,13 @@ const Login = () => {
       const response = await fetch("http://localhost:5000/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data), // Send form data to backend
+        body: JSON.stringify(data), 
       });
 
       const result = await response.json();
       if (response.ok) {
         alert("Logged In");
-        Navigate("../Home"); // Navigate to next page
+        Navigate("/"); // Navigate to next page
       } else {
         alert(result.message);
       }

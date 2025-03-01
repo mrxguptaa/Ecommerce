@@ -1,4 +1,4 @@
-import ProfileInfo from '../components/Profile_info'
+import ProfileInfo from './Profile_info'
 
 const Profile = () => {
     return (

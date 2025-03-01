@@ -49,7 +49,7 @@ const Navbar = () => {
         {/* This is the Navbar for md or larger devices  */}
         <div className="flex justify-center md:justify-between items-center flex-grow">
           <div className="md:basis-1/12 text-center flex justify-center items-center">
-            <img src={logo} alt={logo} className="w-[50px] mt-1" />
+            <Link to='/'><img src={logo} alt={logo} className="w-[50px] mt-1" /> </Link>
           </div>
 
           {/* Search bar Div  */}
@@ -95,10 +95,10 @@ const Navbar = () => {
 
             <li className="p-1 hover:bg-gray-300 flex">
               <Link
-                to="/Signup"
+                to="/Login"
                 className="nav_elements px-0"
               >
-                SignUp
+                Login
               </Link>
             </li>
 

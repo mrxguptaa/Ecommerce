@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Link } from 'react-router-dom';
-import Popup from '../components/popup';
+import Popup from './popup';
 import { useState, useEffect } from 'react';
 
 const userSchema = z.object({
@@ -69,7 +69,7 @@ const AddInfo = () => {
                 <input type="number" placeholder="Postal Code" className="border-2 p-2 capitalize" {...register("Postal")} />
                 {errors.Postal && <p className="text-red-500 text-sm">{errors.Postal.message}</p>}
                 <input type="submit" value="Submit" className="border-2 p-2 capitalize" />
-                <Link to='/Home' className='underline'>Skip for Now</Link>
+                <Link to='/' className='underline'>Skip for Now</Link>
             </form>
         </>
     );

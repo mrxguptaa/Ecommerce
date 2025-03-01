@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"; // Import Use Form
-import googleIcon from "../assets/google-icon.png"; // Import Google icon png
+import googleIcon from "../../assets/google-icon.png"; // Import Google icon png
 import { Link } from "react-router-dom"; // Import Link for redirecte to pages
 import { z } from "zod"; // Import zod for validate form inputs
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,13 +35,14 @@ const Signup = () => {
       const response = await fetch("http://localhost:5000/api/users/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data), // Send form data to backend
+        body: JSON.stringify(data),
       });
 
       const result = await response.json();
       if (response.ok) {
         alert("User registered successfully!");
-        Navigate("../add_info"); // Navigate to next page
+        localStorage.setItem("userEmail", data.email)
+        Navigate("../add_info");
       } else {
         alert(result.message);
       }

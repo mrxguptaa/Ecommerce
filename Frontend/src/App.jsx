@@ -1,10 +1,10 @@
 import Navbar from "./components/Navbar";
-import Signup from "./pages/Signup";
-import NoPage from "./pages/NoPage"
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Profile from './pages/Profile'
-import AddInfo from "./pages/add.info";
+import Signup from "./pages/customer/Signup";
+import NoPage from "./components/NoPage"
+import Home from "./pages/customer/Home"
+import Login from "./pages/customer/Login"
+import Profile from './pages/customer/Profile'
+import AddInfo from "./pages/customer/add.info";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 

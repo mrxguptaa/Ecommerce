@@ -1,0 +1,29 @@
+/ecommerce-project
+│── /backend  # Node.js (Express) Backend
+│   ├── /models        # Mongoose Models (Users, Products, Orders, etc.)
+│   ├── /routes        # Express Routes (API Endpoints)
+│   ├── /controllers   # Business Logic (Auth, Product Handling, etc.)
+│   ├── /middleware    # Auth Middleware, Error Handlers
+│   ├── /config        # DB Config, JWT, etc.
+│   ├── /utils         # Helper Functions
+│   ├── server.js      # Main Backend Entry Point
+│
+│── /frontend  # React Frontend
+│   ├── /public       # Static Assets
+│   ├── /src
+│   │   ├── /components   # Reusable UI Components
+│   │   ├── /pages
+│   │   │   ├── /customer   # Pages for customers (Landing, Product Listing, Cart, etc.)
+│   │   │   ├── /vendor     # Vendor-specific pages (Dashboard, Products, Orders)
+│   │   │   ├── /auth       # Login, Signup, Authentication Pages
+│   │   │   ├── index.js    # Home Page
+│   │   ├── /context    # React Context API for Global State
+│   │   ├── /hooks      # Custom Hooks (useAuth, useFetch, etc.)
+│   │   ├── /utils      # Helper Functions
+│   │   ├── /services   # API Calls (Axios)
+│   │   ├── App.js      # Main React App Entry Point
+│   │   ├── index.js    # ReactDOM Render
+│
+│── /config  # Env Files, Deployment Configs
+│── package.json  # Dependencies
+│── README.md
