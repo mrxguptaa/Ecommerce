@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { Link } from 'react-router-dom';
 import Popup from './popup';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const userSchema = z.object({
     FullName: z.string().min(3, "Full name must be at least 3 characters."),
@@ -22,6 +23,7 @@ const AddInfo = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(userSchema) }); // for form
     const [popUpData, setPopUpData] = useState(null); // to push props to pop up
     const [showPopUp, setShowPopUp] = useState(false); // to show the pop up 
+    const Navigate = useNavigate();
 
     const onSubmit = (data) => {
         setPopUpData(data);
@@ -29,6 +31,8 @@ const AddInfo = () => {
     };
 
     useEffect(() => {
+        const savedEmail = localStorage.getItem("userEmail");
+        savedEmail ? "" : Navigate('/login');
         if (showPopUp) {
             console.log('Updated showPopUp:', showPopUp);
             console.log('Updated popUpData:', popUpData);

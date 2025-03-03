@@ -8,37 +8,31 @@ import {
   HandHelping,
   KeyRound,
   CirclePlus,
-  LogOut,
   // Profiles,
   Bell,
-  CircleUserRound,
+  CircleUserRound
 } from "lucide-react"; //Icons Imported
 import { Link } from "react-router-dom"; // Link for another page imported
-import { useState , useEffect } from "react"; // use state Imported
+import { useState } from "react"; // use state Imported
 import logo from "../assets/logo.svg"; // Import Logo
 import SearchBar from "../components/Search_bar";
-import { UserContext } from "../utilityFunciton/HelpContex";
-import { useContext } from "react";
 // import React from "react";
-// import Skeleton from "react-loading-skeleton";
-// import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // Everything Imported
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false); // Show Navar for Mobile devices
   const [isOpen, setIsOpen] = useState(false); // Change bar to X when clicked
-  const [loading, setLoading] = useState();
-  const [isLogin , setLogin] = useState(false)
-  const currUserData=useContext(UserContext)
-  // const userName = localStorage.getItem("userEmail");
+  const [loading, setLoading] = useState(true);
 
   // Responsive Nav Function
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     setIsVisible(!isVisible);
   };
-  
+
   return (
     <>
       {/* //Navbar Start here
@@ -59,83 +53,92 @@ const Navbar = () => {
         {/* This is the Navbar for md or larger devices  */}
         <div className="flex justify-center md:justify-between items-center flex-grow">
           <div className="md:basis-1/12 text-center flex justify-center items-center">
-            <Link to="/">
-              <img src={logo} alt={logo} className="w-[50px] mt-1" />{" "}
-            </Link>
+            <Link to='/'><img src={logo} alt={logo} className="w-[50px] mt-1" /> </Link>
           </div>
 
           {/* Search bar Div  */}
-          <SearchBar className="hidden md:flex" />
+          <SearchBar className='hidden md:flex' />
 
           {/* Nav bar right side Buttons */}
           <ul className="flex">
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/" className="nav_elements">
+              <Link
+                to="/"
+                className="nav_elements"
+              >
                 Home
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/about" className="nav_elements">
+              <Link
+                to="/about"
+                className="nav_elements"
+              >
                 About
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/Shop" className="nav_elements">
+              <Link
+                to="/Shop"
+                className="nav_elements"
+              >
                 Shop
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/Help" className="nav_elements">
+              <Link
+                to="/Help"
+                className="nav_elements"
+              >
                 Help
               </Link>
             </li>
 
-            {currUserData.user? (
-              <>
-              <li className="p-1 hover:bg-gray-300">
-              <Link to="/cart" className="nav_elements">
+            <li className="p-1 hover:bg-gray-300 flex">
+              <Link
+                to="/Login"
+                className="nav_elements px-0"
+              >
+                Login
+              </Link>
+            </li>
+
+            <li className="p-1 hover:bg-gray-300">
+              <Link
+                to="/cart"
+                className="nav_elements"
+              >
                 <ShoppingCart />
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/Notification" className="nav_elements">
+              <Link
+                to="/Notification"
+                className="nav_elements"
+              >
                 <Bell />
               </Link>
             </li>
-              <li className="p-1 hover:bg-gray-300 flex">
-                <Link to="/Logout" className="nav_elements px-0">
-                  <LogOut />
-                </Link>
-              </li>
-              <li className="p-1 hover:bg-gray-300">
-              <Link to="/Profile" className="nav_elements">
+
+            <li className="p-1 hover:bg-gray-300">
+              <Link
+                to="/Profile"
+                className="nav_elements"
+              >
                 <CircleUserRound />
               </Link>
             </li>
-              </>
-              ) : (
-              <li className="p-1 hover:bg-gray-300 flex">
-                <Link to="/Login" className="nav_elements px-0">
-                  Login
-                </Link>
-              </li>
-            )}
-
-            
-
-            
           </ul>
         </div>
 
         {/* This is the Navbar for Mobile Devices  */}
         <ul
-          className={`text-sm p-2 transition-all duration-300 flex flex-col w-4/6 absolute mt-[10vh] bg-white h-[90vh] overflow-hidden z-100 ${
-            isVisible ? "transalte-x-2" : "-translate-x-[100%]"
-          }`}
+          className={`text-sm p-2 transition-all duration-300 flex flex-col w-4/6 absolute mt-[10vh] bg-white h-[90vh] overflow-hidden z-100 ${isVisible ? "transalte-x-2" : "-translate-x-[100%]"
+            }`}
         >
           <li className="p-1 hover:bg-gray-300">
             <Link

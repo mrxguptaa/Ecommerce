@@ -3,11 +3,16 @@ import googleIcon from "../../assets/google-icon.png";
 import { Link } from "react-router-dom";
 import {ToggleLeft , ToggleRight} from "lucide-react";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../utilityFunciton/HelpContex";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const [ toggle , setToggle] = useState(false);
+  const Navigate = useNavigate();
+  const currUserData=useContext(UserContext)
+  console.log("curr",currUserData)
 
   const onSubmit = async (data) => {
     try {
@@ -20,7 +25,10 @@ const Login = () => {
       const result = await response.json();
       if (response.ok) {
         alert("Logged In");
+        console.log(data)
         Navigate("/"); // Navigate to next page
+        localStorage.setItem('userEmail' , data.email)
+        currUserData.setUser(data.email)
       } else {
         alert(result.message);
       }

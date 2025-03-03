@@ -8,14 +8,14 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-//app.use(cors())
-app.use(cors({ origin: "https://your-vercel-app.vercel.app" }));
+app.use(cors())
+// app.use(cors({ origin: "https://your-vercel-app.vercel.app" }));
 
 // Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI, {
 })
   .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error("❌ MongoDB Connection Error:", err));
+  .catch(err => console.error("MongoDB Connection Error:", err));
 
 // Sample route
 app.get('/', (req, res) => {

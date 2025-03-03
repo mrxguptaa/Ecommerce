@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Navigate }  from "react-router-dom";
+import { useNavigate }  from "react-router-dom";
 
 const Popup = ({ data, onClose }) => {
     const [dbData, setDbData] = useState({});
     const [email, setEmail] = useState("");
+    const Navigate = useNavigate();
 
     useEffect(() => {
         const savedEmail = localStorage.getItem("userEmail");
+        const saveUsername = localStorage.setItem("userName", data.Username)
         if (savedEmail) {
             setEmail(savedEmail);
         }
