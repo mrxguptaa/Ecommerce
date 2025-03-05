@@ -1,32 +1,26 @@
 import {
-  ShoppingCart,
-  Menu,
-  X,
-  House,
-  Store,
-  SquarePen,
-  HandHelping,
-  KeyRound,
-  CirclePlus,
-  LogOut,
-  // Profiles,
-  Bell,
-  CircleUserRound,
-} from "lucide-react"; //Icons Imported
-import { Link } from "react-router-dom"; // Link for another page imported
-import { useState , useEffect } from "react"; // use state Imported
-import logo from "../assets/logo.svg"; // Import Logo
-import SearchBar from "../components/Search_bar";
-import { UserContext } from "../utilityFunciton/HelpContex";
-import { useContext } from "react";
-// import React from "react";
-// import Skeleton from "react-loading-skeleton";
-// import "react-loading-skeleton/dist/skeleton.css";
+    ShoppingCart,
+    Menu,
+    X,
+    House,
+    Store,
+    SquarePen,
+    HandHelping,
+    KeyRound,
+    CirclePlus,
+    LogOut,
+    // Profiles,
+    Bell,
+    CircleUserRound,
+  } from "lucide-react"; //Icons Imported
+  import { Link } from "react-router-dom"; // Link for another page imported
+  import { useState , useEffect } from "react"; // use state Imported
+  import SearchBar from "../../components/Search_bar";
+  import { UserContext } from "../../utilityFunciton/HelpContex";
+  import { useContext } from "react";
 
-// Everything Imported
-
-const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(false); // Show Navar for Mobile devices
+const AdminNavbar = () => {
+    const [isVisible, setIsVisible] = useState(false); // Show Navar for Mobile devices
   const [isOpen, setIsOpen] = useState(false); // Change bar to X when clicked
   const [loading, setLoading] = useState();
   const [isLogin , setLogin] = useState(false)
@@ -60,7 +54,7 @@ const Navbar = () => {
         <div className="flex justify-center md:justify-between items-center flex-grow">
           <div className="md:basis-1/12 text-center flex justify-center items-center">
             <Link to="/">
-              <img src={logo} alt={logo} className="w-[50px] mt-1" />{" "}
+              LOGO
             </Link>
           </div>
 
@@ -70,37 +64,31 @@ const Navbar = () => {
           {/* Nav bar right side Buttons */}
           <ul className="flex">
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/" className="nav_elements">
+              <Link to="/admin/adminDashboard" className="nav_elements">
                 Home
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/admin" className="nav_elements">
-                Admin?
+              <Link to="/admin/products" className="nav_elements">
+                Products
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/Shop" className="nav_elements">
-                Shop
+              <Link to="/admin/orders" className="nav_elements">
+                Orders
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/Help" className="nav_elements">
-                Help
+              <Link to="/admin/customers" className="nav_elements">
+                Customers
               </Link>
             </li>
 
             {currUserData.user? (
               <>
-              <li className="p-1 hover:bg-gray-300">
-              <Link to="/cart" className="nav_elements">
-                <ShoppingCart />
-              </Link>
-            </li>
-
             <li className="p-1 hover:bg-gray-300">
               <Link to="/Notification" className="nav_elements">
                 <Bell />
@@ -119,7 +107,7 @@ const Navbar = () => {
               </>
               ) : (
               <li className="p-1 hover:bg-gray-300 flex">
-                <Link to="/Login" className="nav_elements px-0">
+                <Link to="/" className="nav_elements px-0">
                   Login
                 </Link>
               </li>
@@ -145,47 +133,37 @@ const Navbar = () => {
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/admin"
+              to="/admin/products"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
-              <SquarePen /> Admin?
+              <SquarePen /> Products
             </Link>
           </li>
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/Shop"
+              to="/admin/order"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
               <Store />
-              Shop
+              Order
             </Link>
           </li>
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/Help"
+              to="/admin/Customer"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
               <HandHelping />
-              Help
+              Customer
             </Link>
           </li>
 
           {currUserData.user ? <>
-            <li className="p-1 hover:bg-gray-300">
-            <Link
-              to="/cart"
-              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
-              onClick={toggleMenu}
-            >
-              <ShoppingCart />
-              View Cart
-            </Link>
-          </li>
             <li className="p-1 hover:bg-gray-300">
             <Link
               to="/Profile"
@@ -211,7 +189,7 @@ const Navbar = () => {
           <>
             <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/login"
+              to="/"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
@@ -220,16 +198,6 @@ const Navbar = () => {
             </Link>
           </li>
 
-          <li className="p-1 hover:bg-gray-300">
-            <Link
-              to="/Signup"
-              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
-              onClick={toggleMenu}
-            >
-              <CirclePlus />
-              Signup
-            </Link>
-          </li>
           </>}
 
           
@@ -242,6 +210,6 @@ const Navbar = () => {
       </div>
     </>
   );
-};
+}
 
-export default Navbar;
+export default AdminNavbar
