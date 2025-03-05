@@ -48,9 +48,9 @@ const Navbar = () => {
 
         <button onClick={toggleMenu} className="m-2 basis-1/12 md:hidden">
           {isOpen ? (
-            <X className="w-8 h-8 transition-all duration-300" />
+            <X className={`w-8 h-8 transition-all duration-300 ${currUserData.user ? 'text-green-400' : ''}`} />
           ) : (
-            <Menu className="w-8 h-8 transition-all duration-300" />
+            <Menu className={`w-8 h-8 transition-all duration-300 ${currUserData.user ? 'text-green-600' : ''}`} />
           )}
         </button>
 
@@ -124,10 +124,6 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-
-            
-
-            
           </ul>
         </div>
 
@@ -179,7 +175,41 @@ const Navbar = () => {
             </Link>
           </li>
 
+          {currUserData.user ? <>
+            <li className="p-1 hover:bg-gray-300">
+            <Link
+              to="/cart"
+              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
+              onClick={toggleMenu}
+            >
+              <ShoppingCart />
+              View Cart
+            </Link>
+          </li>
+            <li className="p-1 hover:bg-gray-300">
+            <Link
+              to="/Profile"
+              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
+              onClick={toggleMenu}
+            >
+              <CircleUserRound />
+              Profile
+            </Link>
+          </li>
           <li className="p-1 hover:bg-gray-300">
+            <Link
+              to="/Logout"
+              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
+              onClick={toggleMenu}
+            >
+              <LogOut />
+              Logout
+            </Link>
+          </li>
+          </>
+          : 
+          <>
+            <li className="p-1 hover:bg-gray-300">
             <Link
               to="/login"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
@@ -200,28 +230,13 @@ const Navbar = () => {
               Signup
             </Link>
           </li>
+          </>}
 
-          <li className="p-1 hover:bg-gray-300">
-            <Link
-              to="/cart"
-              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
-              onClick={toggleMenu}
-            >
-              <ShoppingCart />
-              View Cart
-            </Link>
-          </li>
+          
 
-          <li className="p-1 hover:bg-gray-300">
-            <Link
-              to="/Profile"
-              className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
-              onClick={toggleMenu}
-            >
-              <CircleUserRound />
-              Profile
-            </Link>
-          </li>
+          
+
+          
         </ul>
         {/* Mobile Devices Done here  */}
       </div>

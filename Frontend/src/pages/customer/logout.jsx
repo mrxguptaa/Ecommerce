@@ -8,6 +8,7 @@ const Logout = () => {
         localStorage.removeItem("userName")
         localStorage.removeItem("userEmail")
         Navigate('/');
+        window.location.reload()
     },[Navigate])
     return null
 }

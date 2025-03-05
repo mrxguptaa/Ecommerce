@@ -35,9 +35,11 @@ const Popup = ({ data, onClose }) => {
                     city: dbData.City,
                     state: dbData.State,
                     country: dbData.Country,
-                    postalCode: dbData.Postal
+                    postalCode: dbData.Postal,
+                    username: dbData.Username
                 }),
             });
+            
 
             const result = await response.json();
 
@@ -52,6 +54,7 @@ const Popup = ({ data, onClose }) => {
         } catch (error) {
             console.error("Error updating user details:", error);
         }
+        console.log(dbData)
     };
 
     return (

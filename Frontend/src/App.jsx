@@ -11,6 +11,8 @@ import AdminDashboard from './pages/admin/AdminDashboard'
 import Logout from './pages/customer/logout'
 import { UserConProv } from "./utilityFunciton/HelpContex";
 import { useState } from "react";
+import { lazy } from 'react';
+
 
 
 function App() {
