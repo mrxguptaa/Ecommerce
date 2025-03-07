@@ -64,25 +64,25 @@ const AdminNavbar = () => {
           {/* Nav bar right side Buttons */}
           <ul className="flex">
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/admin/adminDashboard" className="nav_elements">
+              <Link to="/adminDashboard" className="nav_elements">
                 Home
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/admin/products" className="nav_elements">
+              <Link to="/products" className="nav_elements">
                 Products
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/admin/orders" className="nav_elements">
+              <Link to="/orders" className="nav_elements">
                 Orders
               </Link>
             </li>
 
             <li className="p-1 hover:bg-gray-300">
-              <Link to="/admin/customers" className="nav_elements">
+              <Link to="/customers" className="nav_elements">
                 Customers
               </Link>
             </li>
@@ -100,7 +100,7 @@ const AdminNavbar = () => {
                 </Link>
               </li>
               <li className="p-1 hover:bg-gray-300">
-              <Link to="/Profile" className="nav_elements">
+              <Link to="/AdminProfile" className="nav_elements">
                 <CircleUserRound />
               </Link>
             </li>
@@ -133,7 +133,7 @@ const AdminNavbar = () => {
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/admin/products"
+              to="/products"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
@@ -143,7 +143,7 @@ const AdminNavbar = () => {
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/admin/order"
+              to="/order"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
@@ -154,7 +154,7 @@ const AdminNavbar = () => {
 
           <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/admin/Customer"
+              to="/Customer"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >
@@ -166,7 +166,7 @@ const AdminNavbar = () => {
           {currUserData.user ? <>
             <li className="p-1 hover:bg-gray-300">
             <Link
-              to="/Profile"
+              to="/AdminProfile"
               className="flex items-center gap-1 py-2 hover:border-l-2 px-2 border-l-black md:hidden"
               onClick={toggleMenu}
             >

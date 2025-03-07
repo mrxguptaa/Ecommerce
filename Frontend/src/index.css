@@ -7,6 +7,10 @@
       hover:border-b-2 border-b-2 border-b-transparent px-2 
       hover:border-b-black md:flex transition !important;
   }
+
+  .SpecsInput {
+    @apply capitalize text-gray-700 border-2 px-4 py-1 rounded-xl w-1/6 mx-2
+  }
 }
 
 @tailwind utilities;

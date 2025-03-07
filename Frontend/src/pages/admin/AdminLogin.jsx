@@ -29,7 +29,7 @@ const AdminLogin = () => {
       if (response.ok) {
         alert("Logged In");
         console.log(data);
-        Navigate("/admin/ProductFetch"); // Navigate to next page
+        Navigate("/productsfetch"); // Navigate to next page
         localStorage.setItem("userEmail", result);
         currUserData.setUser(data);
       } else {
