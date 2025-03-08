@@ -8,9 +8,11 @@ import AddInfo from "./pages/customer/add.info";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import AdminLogin from './pages/admin/AdminLogin'
+import AdminProducts from './pages/admin/adminProduct'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminNavbar from './pages/admin/AdminNavbar'
 import ProductFetch from './pages/admin/ProductFetch'
+
 import AdminProfile from './pages/admin/AdminProfile'
 import Logout from './pages/customer/logout'
 import { UserConProv } from "./utilityFunciton/HelpContex";
@@ -29,6 +31,7 @@ const App = () => {
           <Route path="/" element={<AdminLogin/>}/>
           <Route path="/productsfetch" element={<ProductFetch/>}/>
           <Route path="/dashboard" element={<AdminDashboard/>}/>
+          <Route path="/products" element={<AdminProducts/>}/>
           <Route path="/test" element={<Test />} />
           <Route path="/AdminProfile" element={<AdminProfile/>} />
           <Route path="/login" element={<Login/>}/>
